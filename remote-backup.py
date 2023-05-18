@@ -7,6 +7,7 @@ load_dotenv()
 
 
 class Backup:
+    # Constructor: Initialize the object with the IP address, username, password, and port
     def __init__(self, ip, username, password, port=22):
         self.ip = ip
         self.username = username
@@ -16,23 +17,25 @@ class Backup:
         self.sftp = None
         self.connect()
 
-    # Connect to the server
+    # Connect to the server using SSH and open an SFTP session
     def connect(self):
         try:
+            # Create an SSH client
             self.ssh = paramiko.client.SSHClient()
             self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            # Connect to the host
             self.ssh.connect(self.ip, self.port, self.username, self.password)
-            self.sftp = self.ssh.open_sftp()  # Open an SFTP session on the SSH server
+            # Create an SFTP session
+            self.sftp = self.ssh.open_sftp()
         except Exception as e:
             print(e)
             print("Connection Failed")
             self.ssh.close()
-    # Close the connection
 
     def close(self):
         self.ssh.close()
 
-    # Copy a remote file (remote_dir) from the SFTP server to a local directory (local_dir)
+    # Copy a remote file from `remote_dir` to a `local_dir`
     def backup(self, local_dir, remote_dir):
         try:
             self.sftp.stat(remote_dir)
@@ -55,7 +58,10 @@ if __name__ == "__main__":
     local_dir = os.environ.get("LOCAL_DIR")
     remote_dir = os.environ.get("REMOTE_DIR")
 
-    # Create a backup object
+    # Create a backup object and call the backup method
     backup = Backup(host, username, password, port)
     backup.backup(local_dir, remote_dir)
     backup.close()
+
+# Run the script
+# `python3 remote-backup.py``
