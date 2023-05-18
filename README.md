@@ -12,6 +12,7 @@ Linux Cron utility.
 
 -   Python 3.6 or higher
 -   Paramiko library
+-   dotenv library
 
 ## Installation
 
@@ -24,3 +25,7 @@ Linux Cron utility.
 -   Clone the repository using `git clone https://github.com/jim3/remote-backup-script.git`
 -   Edit the `.env` file to add your server details and the files you want to backup
 -   Run the script using `python backup.py` or schedule it to run automatically
+
+## Note
+I haven't taken the time to get this to work on Windows using environment variables (dotenv).
+Hard coding the server details works fine though. I'll get around to fixing it at some point...

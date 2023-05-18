@@ -1,0 +1,29 @@
+### .gitignore
+
+# environment variables
+
+.env
+
+# virtualenv
+
+venv/
+
+# compiled files
+
+\*.pyc
+
+# local backup files
+
+\*.bak
+
+# log files
+
+\*.log
+
+# cache files
+
+**pycache**/
+
+# database files
+
+\*.db
