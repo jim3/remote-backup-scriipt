@@ -28,4 +28,4 @@ Linux Cron utility.
 
 ---
 
--   Clone the repository using `git clone
+-   Clone the repository using `git clone https://github.com/jim3/remote-backup-script.git`
