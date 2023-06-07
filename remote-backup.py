@@ -63,5 +63,3 @@ if __name__ == "__main__":
     backup.backup(local_dir, remote_dir)
     backup.close()
 
-# Run the script
-# `python3 remote-backup.py``
